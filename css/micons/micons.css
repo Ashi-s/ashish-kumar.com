@@ -1,0 +1,87 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?got9tl');
+  src:  url('fonts/icomoon.eot?got9tl#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?got9tl') format('truetype'),
+    url('fonts/icomoon.woff?got9tl') format('woff'),
+    url('fonts/icomoon.svg?got9tl#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-badge:before {
+  content: "\e90b";
+}
+.icon-chat:before {
+  content: "\e920";
+}
+.icon-clock:before {
+  content: "\e929";
+}
+.icon-comment:before {
+  content: "\e92d";
+}
+.icon-cup:before {
+  content: "\e931";
+}
+.icon-image:before {
+  content: "\e95e";
+}
+.icon-light-bulb:before {
+  content: "\e96a";
+}
+.icon-mail:before {
+  content: "\e96f";
+}
+.icon-pencil-ruler:before {
+  content: "\e992";
+}
+.icon-phone:before {
+  content: "\e993";
+}
+.icon-pin-2:before {
+  content: "\e996";
+}
+.icon-terminal:before {
+  content: "\e9c4";
+}
+.icon-user:before {
+  content: "\e9d5";
+}
+.icon-users:before {
+  content: "\e9d8";
+}
+.icon-window:before {
+  content: "\e805";
+}
+.icon-dev-dot-to:before {
+  content: "\a800";
+}
+.icon-file-text:before {
+  content: "\a801";
+}
+.icon-database:before {
+  content: "\a802";
+}
+.icon-stats-dots:before {
+  content: "\a803";
+}
+.icon-sphere:before {
+  content: "\a804";
+}
